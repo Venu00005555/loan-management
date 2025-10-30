@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css_block %}
+<style>
+    .loan-section {
+        height: 80vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+</style>
+{% endblock %}
+
+{% block body_block %}
+{% include 'navbar.html' %}
+
+<div class="container loan-section">
+    <div class="row align-items-center">
+        <div class="col-md-6 text-center">
+            <img src="{% static 'images/loan.jpg' %}" class="img-fluid" alt="Loan Image">
+        </div>
+        <div class="col-md-6 text-center">
+            <div class="d-flex justify-content-center align-items-center">
+                <a href="/loan/loan-request/" class="btn btn-info btn-rounded m-2">Apply Loan</a>
+                <span>or</span>
+                <a href="/account/signup-customer/" class="btn btn-info btn-rounded ms-2">Register</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% include "footer.html" %}
+{% endblock %}

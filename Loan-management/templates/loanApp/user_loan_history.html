@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css_block %}
+<style>
+  table {
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  thead {
+    background-color: #0d6efd;
+    color: white;
+  }
+  h1 {
+    font-weight: 600;
+  }
+</style>
+{% endblock %}
+
+{% block body_block %}
+{% include 'navbar.html' %}
+
+<div class="container my-5">
+  <h1 class="text-center text-primary mb-4">Loan Request History</h1>
+
+  <div class="users my-5">
+    <table class="table table-hover table-bordered text-center align-middle shadow-sm">
+      <thead>
+        <tr>
+          <th>SL</th>
+          <th>Loan ID</th>
+          <th>User ID</th>
+          <th>Username</th>
+          <th>Status</th>
+          <th>Category</th>
+          <th>Request Amount</th>
+          <th>Request Date</th>
+          <th>Year</th>
+          <th>Email</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for loan in loans %}
+        <tr>
+          <td>{{ forloop.counter }}</td>
+          <td>{{ loan.id }}</td>
+          <td>{{ loan.customer.id }}</td>
+          <td>{{ loan }}</td>
+          <td>
+            <button class="btn btn-sm btn-info text-white px-3">
+              {{ loan.status }}
+            </button>
+          </td>
+          <td>{{ loan.category }}</td>
+          <td>{{ loan.amount }} Tk</td>
+          <td>{{ loan.request_date }}</td>
+          <td>{{ loan.year }}</td>
+          <td>{{ loan.customer.user.email }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+          <td colspan="10" class="text-muted py-4">No loan history available.</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+{% include 'footer.html' %}
+{% endblock %}

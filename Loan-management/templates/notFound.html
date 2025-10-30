@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title_block %}
+Error
+{% endblock %}
+
+{% block css_block %}
+<style>
+  .error-container {
+    margin-top: 5rem;
+  }
+</style>
+{% endblock %}
+
+{% block body_block %}
+{% include 'navbar.html' %}
+
+<div class="container error-container">
+  <div class="row">
+    <div class="col-md-4 m-auto">
+      <div class="alert alert-danger text-center" role="alert">
+        {{ error }}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% include 'footer.html' %}
+{% endblock %}

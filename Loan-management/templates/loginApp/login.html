@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+{% load static %}
+
+{% block title_block %}
+User Login
+{% endblock %}
+
+{% block body_block %}
+{% include 'navbar.html' %}
+
+<div class="container my-5">
+  <div class="row justify-content-center">
+    <div class="col-md-4 bg-body rounded shadow-lg p-5">
+      <h3 class="text-center text-success">{{ user }}</h3>
+
+      <form method="POST" class="my-5">
+        {% if error %}
+          <div class="alert alert-danger text-center mb-4" role="alert">
+            {{ error }}
+          </div>
+        {% endif %}
+        
+        {% csrf_token %}
+
+        <div class="mb-4 form-outline">
+          {% render_field form.username|attr:'required:true' class="form-control" %}
+          <label class="form-label">Username</label>
+        </div>
+
+        <div class="mb-4 form-outline">
+          {% render_field form.password|attr:'required:true' class="form-control" %}
+          <label class="form-label">Password</label>
+        </div>
+
+        <div class="mb-4 row">
+          <div class="col">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" checked />
+              <label class="form-check-label">Remember me</label>
+            </div>
+          </div>
+          <div class="col text-end">
+            <a href="#!">Forgot password?</a>
+          </div>
+        </div>
+
+        <button type="submit" class="mb-4 btn btn-primary btn-block w-100">Sign in</button>
+
+        <div class="text-center">
+          <p>Not a member? <a href="/account/signup-customer">Register</a></p>
+          <p>or sign up with:</p>
+          <button type="button" class="btn btn-primary btn-floating mx-1">
+            <i class="fab fa-facebook-f"></i>
+          </button>
+          <button type="button" class="btn btn-primary btn-floating mx-1">
+            <i class="fab fa-google"></i>
+          </button>
+          <button type="button" class="btn btn-primary btn-floating mx-1">
+            <i class="fab fa-twitter"></i>
+          </button>
+          <button type="button" class="btn btn-primary btn-floating mx-1">
+            <i class="fab fa-github"></i>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+{% include "footer.html" %}
+{% endblock %}
