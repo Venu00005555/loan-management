@@ -35,11 +35,4 @@ This system provides secure authentication, role-based access control, financial
 | **Authentication** | JWT (JSON Web Token) |
 | **Deployment** | AWS (EC2, S3, RDS) |
 
----
 
-## ⚙️ Installation & Setup
-
-### 1️⃣ Clone the Repository
-```bash
-git clone https://github.com/<Venu00005555>/loan-management-system.git
-cd loan-management-system
