@@ -41,5 +41,5 @@ This system provides secure authentication, role-based access control, financial
 
 ### 1️⃣ Clone the Repository
 ```bash
-git clone https://github.com/<your-username>/loan-management-system.git
+git clone https://github.com/<Venu00005555>/loan-management-system.git
 cd loan-management-system
